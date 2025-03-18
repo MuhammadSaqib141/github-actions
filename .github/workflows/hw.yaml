@@ -1,0 +1,25 @@
+name: First GitHub Action  # Name of the workflow
+
+on:  # Defines when the workflow runs
+  push:  
+    branches:
+      - main  # Runs when code is pushed to the 'main' branch
+  pull_request:
+    branches:
+      - main  # Runs when a PR is opened against 'main'
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  example_job:  # First job
+    runs-on: ubuntu-latest  # Runs on the latest Ubuntu environment
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Checks out the repo so code is available
+      - name: Print Hello
+        run: echo "Hello, GitHub Actions!"  # Prints a message to the console
+
+  good_bye:  # Second job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print byee
+        run: echo "Byee, GitHub Actions!"  # Prints another message
